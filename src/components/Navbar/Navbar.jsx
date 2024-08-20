@@ -9,9 +9,10 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-
-import LogoImg from "../../assets/milo-sport.png";
 import CartWidget from "../CartWidget/CartWidget";
+
+import LogoBlack from "../../assets/milo-sport-logo.png";
+import LogoWhite from "../../assets/milo-sport-logo-blanco.png"
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -24,7 +25,7 @@ export default function Nav() {
             width={"250px"}
             height={"100%"}
             objectFit={"cover"}
-            src={LogoImg}
+            src={colorMode === "light" ? LogoBlack : LogoWhite}
           />
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>

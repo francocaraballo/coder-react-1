@@ -1,4 +1,6 @@
 import React from "react";
+import { Box } from "@chakra-ui/react"
+import CountItems from "./CountItems";
 
 const ShoppingCartIcon = ({ color }) => {
   return (
@@ -22,6 +24,10 @@ const ShoppingCartIcon = ({ color }) => {
           strokeWidth="1.5"
         />
       </svg>
+      <Box>
+        <CountItems count={1} />
+      </Box>
+      
     </>
   );
 };
