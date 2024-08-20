@@ -18,8 +18,7 @@ const CartWidget = ({ colorMode }) => {
       <Menu>
         <MenuButton
           as={Button}
-          rounded={"full"}
-          variant={"link"}
+          rounded={"lg"}
           cursor={"pointer"}
           minW={0}
         >

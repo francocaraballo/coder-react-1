@@ -5,7 +5,8 @@ const CountItems = ({ count }) => {
   const styles = {
     borderRadius: "10px",
     fontSize: "0.7rem",
-    textDecoration: "none"
+    textDecoration: "none",
+    fontWeight: "bold"
   }
 
   return (
