@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react"
-import CountItems from "./CountItems";
+import { CountItems } from "./";
 
-const ShoppingCartIcon = ({ color }) => {
+export const ShoppingCartIcon = ({ color }) => {
   return (
     <>
       <svg
@@ -32,4 +32,3 @@ const ShoppingCartIcon = ({ color }) => {
   );
 };
 
-export default ShoppingCartIcon;

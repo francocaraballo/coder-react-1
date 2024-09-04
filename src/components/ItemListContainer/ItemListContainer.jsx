@@ -1,11 +1,21 @@
 import React from 'react'
+import { CardItem } from './';
+import { Flex } from '@chakra-ui/react';
+import { useProducts } from '../../hooks'
 
-const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = () => {
+  const { loading, products } = useProducts();
+
   return (
-    <>
-      <h1>Bienvenidos a la tienda de {greeting}</h1>
-    </>
+    <Flex flexWrap={'wrap'}>
+      {
+        loading ?
+        <h1>Cargando ...</h1>
+        : products.map((product) => {
+        return <CardItem product={product} key={product.id} />
+      })
+      }
+    </Flex>
   )
 }
 
-export default ItemListContainer

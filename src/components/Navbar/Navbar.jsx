@@ -9,12 +9,12 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import CartWidget from "../CartWidget/CartWidget";
+import { CartWidget } from "./";
 
 import LogoBlack from "../../assets/milo-sport-logo.png";
 import LogoWhite from "../../assets/milo-sport-logo-blanco.png"
 
-export default function Nav() {
+export function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (

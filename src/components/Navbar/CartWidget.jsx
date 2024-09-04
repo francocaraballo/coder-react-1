@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Menu,
   Text,
@@ -9,9 +10,9 @@ import {
   Button,
   Center
 } from '@chakra-ui/react'
-import ShoppingCartIcon from "./ShoppingCartIcon";
+import { ShoppingCartIcon } from "./";
 
-const CartWidget = ({ colorMode }) => {
+export const CartWidget = ({ colorMode }) => {
 
   return (
     <>
@@ -38,5 +39,3 @@ const CartWidget = ({ colorMode }) => {
     </>
   );
 };
-
-export default CartWidget;

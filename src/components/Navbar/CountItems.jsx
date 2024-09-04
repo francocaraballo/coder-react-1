@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 
-const CountItems = ({ count }) => {
+export const CountItems = ({ count }) => {
   const styles = {
     borderRadius: "10px",
     fontSize: "0.7rem",
@@ -15,5 +15,3 @@ const CountItems = ({ count }) => {
     </Box>
   )
 }
-
-export default CountItems
