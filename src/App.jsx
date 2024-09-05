@@ -1,16 +1,13 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 
-import { Navbar, ItemListContainer } from "./components";
+import { MainRouter } from "./routes/MainRouter";
 
 const App = () => {
   return (
-    <>
       <ChakraProvider>
-        <Navbar />
-            <ItemListContainer />
+        <MainRouter />
       </ChakraProvider>
-    </>
   );
 };
 

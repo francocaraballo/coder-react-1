@@ -15,9 +15,9 @@ import {
 export const CardItem = ({ product }) => {
   return (
     <>
-      <Card maxW="sm">
+      <Card maxW="300px">
         <CardBody>
-          <Image src={product.image} alt={product.title} borderRadius="lg" />
+          <Image src={product.images[0]} alt={product.title} borderRadius="lg" height='300px' />
           <Stack mt="6" spacing="3">
             <Heading size="md">{product.title}</Heading>
             <Text>{product.description}</Text>

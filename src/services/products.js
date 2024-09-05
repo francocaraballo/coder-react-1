@@ -1,15 +1,14 @@
-import axios from 'axios';
-
 export async function getProducts() {
   try {
-    const res = await fetch('https://fakestoreapi.com/products');
-    const data = await res.json();
-    return data;
+    const res = await fetch('https://dummyjson.com/products');
+    const { products } = await res.json();
+    return products;
   } catch (error) {
     console.log(error);
   }
 }
 
+// Cambiar  a fetch
 export async function getProductById(id) {
-  return await axios.get(`https://fakestoreapi.com/products/${id}`);
+  return await axios.get(`'https://dummyjson.com/products'/${id}`);
 }
