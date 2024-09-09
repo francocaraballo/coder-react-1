@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "../components";
-import { Home, ItemDetails, Products } from "../pages";
+import { Home, Products, ItemDetails, Categories } from "../pages";
 
 export const MainRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route exact path="/products" element={<Products />} />
-        <Route exact path="/products/:id" element={<ItemDetails />} />
-        <Route exact path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/category/:cat" element={<Categories />} />
+        <Route path="/products/:id" element={<ItemDetails />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

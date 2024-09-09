@@ -1,9 +1,17 @@
-import React from 'react'
+import { useProduct } from "../hooks";
+import { useParams } from "react-router-dom";
+
+
+import { ItemDetailsContainer } from '../components'
+
 
 export function ItemDetails() {
+  const { id } = useParams();
+  const { product, loading } = useProduct(id);
+
   return (
     <>
-      <h1>Detalles del producto</h1>
+      <ItemDetailsContainer product={ product } />
     </>
   )
 }

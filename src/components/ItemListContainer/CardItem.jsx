@@ -10,14 +10,20 @@ import {
   CardFooter,
   ButtonGroup,
   Button,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const CardItem = ({ product }) => {
   return (
     <>
-      <Card maxW="300px">
+      <Card maxW="350px">
         <CardBody>
-          <Image src={product.images[0]} alt={product.title} borderRadius="lg" height='300px' />
+          <Image
+            src={product.images[0]}
+            alt={product.title}
+            borderRadius="lg"
+            height="300px"
+          />
           <Stack mt="6" spacing="3">
             <Heading size="md">{product.title}</Heading>
             <Text>{product.description}</Text>
@@ -35,6 +41,11 @@ export const CardItem = ({ product }) => {
             <Button variant="ghost" colorScheme="blue">
               Add to cart
             </Button>
+            <Link to={`/products/${product.id}`}>
+              <Button variant="outline" colorScheme="blue">
+                Details
+              </Button>
+            </Link>
           </ButtonGroup>
         </CardFooter>
       </Card>

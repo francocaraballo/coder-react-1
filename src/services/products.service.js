@@ -8,7 +8,13 @@ export async function getProducts() {
   }
 }
 
-// Cambiar  a fetch
 export async function getProductById(id) {
-  return await axios.get(`'https://dummyjson.com/products'/${id}`);
-}
+  try {
+    const res = await fetch(`https://dummyjson.com/products/${id}`);
+    const data = await res.json()
+    return data;
+    
+  } catch (error) {
+    console.log(error)
+  }
+} 

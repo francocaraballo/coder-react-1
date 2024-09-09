@@ -1,6 +1,6 @@
 import React from "react";
-import { CardItem } from "./";
 import { Flex } from "@chakra-ui/react";
+import { CardItem } from "./";
 import { useProducts } from "../../hooks";
 
 export const ItemListContainer = () => {
