@@ -1,10 +1,8 @@
-import React from 'react'
-import { ItemListContainer } from '../components'
-
+import { Hero } from '../components'
 export function Home() {
   return (
     <>
-      <h1>Bienvenidos a nuestra tienda virtual!</h1>
+      <Hero />
     </>
   )
 }

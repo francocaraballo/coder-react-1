@@ -1,11 +1,10 @@
-import React from 'react'
 import { ItemListContainer } from '../components'
 
+import { Flex } from '@chakra-ui/react'
 export function Products() {
   return (
-    <>
-      <h1>Nuestros Productos</h1>
+    <Flex alignItems='center' justifyContent='center'>
       <ItemListContainer />
-    </>
+    </Flex>
   )
 }

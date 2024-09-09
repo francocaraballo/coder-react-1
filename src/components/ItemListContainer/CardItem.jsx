@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 export const CardItem = ({ product }) => {
   return (
     <>
-      <Card maxW="350px">
+      <Card maxW="350px" height="650">
         <CardBody>
           <Image
             src={product.images[0]}
@@ -28,7 +28,7 @@ export const CardItem = ({ product }) => {
             <Heading size="md">{product.title}</Heading>
             <Text>{product.description}</Text>
             <Text color="blue.600" fontSize="2xl">
-              {product.price}
+              ${product.price}
             </Text>
           </Stack>
         </CardBody>

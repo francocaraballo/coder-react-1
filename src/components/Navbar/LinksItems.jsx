@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCategories } from "../../hooks";
 
 import {
   Box,
@@ -22,31 +23,17 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 
+
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Products", path: "/products" },
 ];
 
-const dropdownLinks = [
-  {
-    name: "Blog",
-    path: "#",
-  },
-  {
-    name: "Documentation",
-    path: "#",
-  },
-  {
-    name: "Github Repo",
-    path: "#",
-  },
-];
-
 const NavLink = ({ name, path, onClose }) => {
   return (
-    <Link
+    <Text fontSize='lg'>
+      <Link
       to={path}
-      lineHeight="inherit"
       _hover={{
         textDecoration: "none",
         color: useColorModeValue("blue.500", "blue.200"),
@@ -55,12 +42,13 @@ const NavLink = ({ name, path, onClose }) => {
     >
       {name}
     </Link>
+    </Text>
   );
 };
 
-const MenuLink = ({ name, path, onClose }) => {
+const MenuLink = ({ name, slug, onClose }) => {
   return (
-    <Link to={path} onClick={() => onClose()}>
+    <Link to={`/category/${slug}`} onClick={() => onClose()}>
       <MenuItem
         _hover={{
           color: "blue.400",
@@ -75,6 +63,7 @@ const MenuLink = ({ name, path, onClose }) => {
 
 export const LinksItems = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { categoriesList } = useCategories();
 
   return (
     <>
@@ -95,7 +84,7 @@ export const LinksItems = () => {
                 <>
                   <MenuButton _hover={{ color: "blue.400" }}>
                     <Flex alignItems="center">
-                      <Text>Community</Text>
+                      <Text fontSize='lg'>Categories</Text>
                       <Icon
                         as={BiChevronDown}
                         h={5}
@@ -118,11 +107,11 @@ export const LinksItems = () => {
                       "2px 4px 6px 2px rgba(9, 17, 28, 0.6)"
                     )}
                   >
-                    {dropdownLinks.map((link, index) => (
+                    {categoriesList.map((category, index) => (
                       <MenuLink
                         key={index}
-                        name={link.name}
-                        path={link.path}
+                        name={category.name}
+                        slug={category.slug}
                         onClose={onClose}
                       />
                     ))}

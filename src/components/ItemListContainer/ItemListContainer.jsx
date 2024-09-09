@@ -7,7 +7,7 @@ export const ItemListContainer = () => {
   const { loading, products } = useProducts();
 
   return (
-    <Flex flexWrap={"wrap"}>
+    <Flex flexWrap="wrap" alignItems='center' justifyContent='center' padding='30px 15px' gap='10px'>
       {loading ? (
         <h1>Cargando ...</h1>
       ) : (
