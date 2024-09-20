@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import {
   Box,
   chakra,
@@ -17,9 +18,15 @@ import {
   ListItem,
 } from '@chakra-ui/react'
 import { MdLocalShipping } from 'react-icons/md'
+import { ButtonItemComponent } from '../utilities'
+import { useCounter } from '../../hooks';
+import { CartContext } from '../../context/CartContext';
 
 export function ItemDetailsContainer({ product }) {
-
+  const { count, increment, decrement } = useCounter();
+  const { cart, addItem, removeItem } = useContext(CartContext);
+  console.log(cart)
+  
   return (
     <Container maxW={'7xl'}>
       <SimpleGrid
@@ -73,85 +80,6 @@ export function ItemDetailsContainer({ product }) {
                 porro, quae, quisquam quos reprehenderit velit? Natus, totam.
               </Text>
             </VStack>
-            <Box>
-              <Text
-                fontSize={{ base: '16px', lg: '18px' }}
-                color={useColorModeValue('yellow.500', 'yellow.300')}
-                fontWeight={'500'}
-                textTransform={'uppercase'}
-                mb={'4'}>
-                Features
-              </Text>
-
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>
-                  <ListItem>Chronograph</ListItem>
-                  <ListItem>Master Chronometer Certified</ListItem>{' '}
-                  <ListItem>Tachymeter</ListItem>
-                </List>
-                <List spacing={2}>
-                  <ListItem>Anti‑magnetic</ListItem>
-                  <ListItem>Chronometer</ListItem>
-                  <ListItem>Small seconds</ListItem>
-                </List>
-              </SimpleGrid>
-            </Box>
-            <Box>
-              <Text
-                fontSize={{ base: '16px', lg: '18px' }}
-                color={useColorModeValue('yellow.500', 'yellow.300')}
-                fontWeight={'500'}
-                textTransform={'uppercase'}
-                mb={'4'}>
-                Product Details
-              </Text>
-
-              <List spacing={2}>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Between lugs:
-                  </Text>{' '}
-                  20 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Bracelet:
-                  </Text>{' '}
-                  leather strap
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Case:
-                  </Text>{' '}
-                  Steel
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Case diameter:
-                  </Text>{' '}
-                  42 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Dial color:
-                  </Text>{' '}
-                  Black
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Crystal:
-                  </Text>{' '}
-                  Domed, scratch‑resistant sapphire crystal with anti‑reflective treatment
-                  inside
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Warranty: 
-                  </Text>{' '}
-                  { product.warrantyInformation }{' '}
-                </ListItem>
-              </List>
-            </Box>
           </Stack>
 
           <Button
@@ -166,11 +94,14 @@ export function ItemDetailsContainer({ product }) {
             _hover={{
               transform: 'translateY(2px)',
               boxShadow: 'lg',
-            }}>
+            }}
+            onClick={ () => addItem(product, count)}>
             Add to cart
           </Button>
 
-            <Text textAlign={'end'}>{ product.stock } units in stock</Text>
+          <ButtonItemComponent count={count} firstBtn={decrement} secBtn={increment} />
+
+          <Text textAlign={'end'}>{ product.stock } units in stock</Text>
           <Stack direction="row" alignItems="center" justifyContent={'center'}>
             <MdLocalShipping />
             <Text>{ product.shippingInformation}</Text>

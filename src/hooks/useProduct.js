@@ -8,7 +8,6 @@ export function useProduct(id) {
   useEffect(() =>{
     getProductById(id)
       .then( data => {
-        console.log(data);
         setProduct(data);
       })
       .catch(console.log)

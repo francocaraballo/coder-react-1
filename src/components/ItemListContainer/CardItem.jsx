@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import {
   Card,
   CardBody,
@@ -12,8 +12,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 export const CardItem = ({ product }) => {
+
+  const { addItem } = useContext(CartContext);
+
   return (
     <>
       <Card maxW="350px" height="650">
@@ -33,12 +37,10 @@ export const CardItem = ({ product }) => {
           </Stack>
         </CardBody>
         <Divider />
-        <CardFooter>
+        <CardFooter justifyContent={"center"}>
           <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              Buy now
-            </Button>
-            <Button variant="ghost" colorScheme="blue">
+            <Button colorScheme="blue"
+            onClick={ () => addItem(product, 1) }>
               Add to cart
             </Button>
             <Link to={`/products/${product.id}`}>
