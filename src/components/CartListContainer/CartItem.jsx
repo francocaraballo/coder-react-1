@@ -3,21 +3,20 @@ import {
   Stack,
   Flex,
   Image,
-  IconButton
+  IconButton,
+  HStack,
+  Text
 } from "@chakra-ui/react";
+import { MinusIcon, AddIcon } from '@chakra-ui/icons'
 import { MdDeleteOutline } from "react-icons/md";
-import { ButtonItemComponent } from "../utilities";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useCounter } from "../../hooks";
 
 export const CartItem = (product) => {
-  const { cart, addItem, removeItem } = useContext(CartContext);
-  const { increment, decrement } = useCounter();
+  const { cart, addItem, removeItem, deleteItem } = useContext(CartContext);
 
-  const handleClick = () => {
-
-  }
+  console.log(cart)
 
   return (
     <Stack
@@ -38,8 +37,8 @@ export const CartItem = (product) => {
           w={{ base: "100%", md: "18rem" }}
           h="auto"
           objectFit="cover"
-          src={ product.thumbnail }
-          alt={ product.title }
+          src={product.thumbnail}
+          alt={product.title}
         />
       </Flex>
       <Flex
@@ -58,10 +57,33 @@ export const CartItem = (product) => {
           </chakra.h3>
         </Flex>
         <Flex>
-          <ButtonItemComponent count={product.qty} firstBtn={decrement} secBtn={increment}/>
-          <IconButton onClick={ () => removeItem( product.id )}>
-            <MdDeleteOutline />
-          </IconButton>
+          {/* <ButtonItemComponent
+            count={product.qty}
+            firstBtn={decrement}
+            secBtn={increment}
+          /> */}
+          <HStack>
+            <HStack>
+              <IconButton
+                aria-label="Disminuir cantidad"
+                icon={<MinusIcon />}
+                size="sm"
+                onClick={() => removeItem(product)}
+                isDisabled={product.qty === 1}
+              />
+              <Text>{product.qty}</Text>
+              <IconButton
+                aria-label="Aumentar cantidad"
+                icon={<AddIcon />}
+                size="sm"
+                onClick={() => addItem(product)}
+                isDisabled={product.qty >= product.stock}
+              />
+            </HStack>
+            <IconButton onClick={() => deleteItem(product.id)}>
+              <MdDeleteOutline />
+            </IconButton>
+          </HStack>
         </Flex>
       </Flex>
     </Stack>

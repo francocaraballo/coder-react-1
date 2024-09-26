@@ -23,9 +23,8 @@ import { useCounter } from '../../hooks';
 import { CartContext } from '../../context/CartContext';
 
 export function ItemDetailsContainer({ product }) {
-  const { count, increment, decrement } = useCounter();
-  const { cart, addItem, removeItem } = useContext(CartContext);
-  console.log(cart)
+  const { count, increment, decrement } = useCounter(0, true);
+  const { addItem } = useContext(CartContext);
   
   return (
     <Container maxW={'7xl'}>

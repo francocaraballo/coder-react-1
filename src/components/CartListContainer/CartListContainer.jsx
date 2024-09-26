@@ -19,7 +19,7 @@ export const CartListContainer = ({ productsList }) => {
     <Container maxW="7xl" p={{ base: 5, md: 12 }} margin="0 auto">
       <VStack spacing={4}>
         {productsList.map(( product ) => (
-          <CartItem {...product} />
+          <CartItem key={ product.id } {...product} />
         ))}
       </VStack>
     </Container>

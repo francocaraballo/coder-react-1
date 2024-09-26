@@ -6,20 +6,40 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItem = (product, qty) => {
-    if (qty == 0) return
 
-    product.qty = qty;
-    if(!cart.length) {
-      setCart([product])
+    const isProductCart = cart.find( item => item.id === product.id);
+
+    if(isProductCart) {
+      setCart(
+        cart.map(
+          item => item.id === product.id
+            ? { ...item, qty: item.qty + 1}
+            : item
+        )
+      )
     } else {
-      setCart(items => [...items, product])
+      setCart([...cart, { ...product, qty }]);
     }
-    console.log(cart);
-    
   }
 
-  const removeItem = () => {
+  const removeItem = ( product ) => {
+    const isProductCart = cart.find( item => item.id === product.id);
 
+    if(isProductCart.qty === 1) {
+      deleteItem( isProductCart.id )
+    } else {
+      setCart(
+        cart.map(
+          item => item.id === isProductCart.id
+            ? { ...item, qty: item.qty - 1}
+            : item
+        )
+      );
+    }
+  }
+
+  const deleteItem = ( id ) => {
+    setCart(cart.filter( product => product.id != id ))
   }
 
   const totalItems = () => {
@@ -27,7 +47,7 @@ export const CartProvider = ({ children }) => {
     return count;
   }
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, totalItems }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, totalItems, deleteItem }}>
       { children }
     </CartContext.Provider>
   )
