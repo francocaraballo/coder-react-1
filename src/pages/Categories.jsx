@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useCategories } from "../hooks/useCategories";
 
-import { CardItem } from "../components";
+import { CardItem, LoadSpinner } from "../components";
 
 import { Flex, Text, Box } from "@chakra-ui/react";
 
@@ -11,7 +11,6 @@ export function Categories() {
 
   const { products } = productsByCategory;
 
-  console.log(products);
   return (
     <>
       <Box py='20px'>
@@ -21,9 +20,9 @@ export function Categories() {
       </Box>
       <Flex alignItems="center" justifyContent="center" wrap="wrap" gap="10px">
         {products ? (
-          products.map((product) => <CardItem product={product} />)
+          products.map((product) => <CardItem key={ product.id } product={product} />)
         ) : (
-          <Text>Cargando...</Text>
+          <LoadSpinner />
         )}
       </Flex>
     </>

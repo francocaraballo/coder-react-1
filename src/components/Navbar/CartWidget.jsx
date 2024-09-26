@@ -1,16 +1,8 @@
 import { useContext } from "react";
 
 import {
-  Menu,
-  Text,
-  Box,
   Flex,
-  MenuButton,
-  MenuList,
-  MenuDivider,
-  MenuItem,
   Button,
-  Center,
 } from "@chakra-ui/react";
 import { ShoppingCartIcon } from "./";
 import { CartContext } from "../../context/CartContext";

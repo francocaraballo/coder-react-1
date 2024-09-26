@@ -1,4 +1,4 @@
-import { Stack, Button, Flex, useColorModeValue, Box } from "@chakra-ui/react";
+import { Button, Flex, useColorModeValue, Box } from "@chakra-ui/react";
 
 export function ButtonItemComponent({ count, firstBtn, secBtn }) {
   return (

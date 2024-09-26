@@ -11,12 +11,9 @@ import { MinusIcon, AddIcon } from '@chakra-ui/icons'
 import { MdDeleteOutline } from "react-icons/md";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { useCounter } from "../../hooks";
 
-export const CartItem = (product) => {
-  const { cart, addItem, removeItem, deleteItem } = useContext(CartContext);
-
-  console.log(cart)
+export const CartItem = ( product ) => {
+  const { addItem, removeItem, deleteItem } = useContext(CartContext);
 
   return (
     <Stack
@@ -57,11 +54,6 @@ export const CartItem = (product) => {
           </chakra.h3>
         </Flex>
         <Flex>
-          {/* <ButtonItemComponent
-            count={product.qty}
-            firstBtn={decrement}
-            secBtn={increment}
-          /> */}
           <HStack>
             <HStack>
               <IconButton
