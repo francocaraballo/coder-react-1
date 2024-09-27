@@ -31,8 +31,8 @@ export function ItemDetailsContainer({ product }) {
         <Flex>
           <Image
             rounded={'md'}
-            alt={'Product Image'}
-            src={ product.thumbnail}
+            alt={ product.title }
+            src={ product.img }
             fit={'contain'}
             align={'center'}
             w={'100%'}
@@ -45,7 +45,7 @@ export function ItemDetailsContainer({ product }) {
               lineHeight={1.1}
               fontWeight={600}
               fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-              { product.title}
+              { product.title }
             </Heading>
             <Text
               color={useColorModeValue('gray.900', 'gray.400')}
@@ -99,7 +99,7 @@ export function ItemDetailsContainer({ product }) {
           <Text textAlign={'end'}>{ product.stock } units in stock</Text>
           <Stack direction="row" alignItems="center" justifyContent={'center'}>
             <MdLocalShipping />
-            <Text>{ product.shippingInformation}</Text>
+            <Text>Envio gratis con tu compra mayor a $20.000</Text>
           </Stack>
         </Stack>
       </SimpleGrid>

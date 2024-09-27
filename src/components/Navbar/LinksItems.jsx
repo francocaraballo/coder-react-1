@@ -29,6 +29,29 @@ const navLinks = [
   { name: "Products", path: "/products" },
 ];
 
+const categoriesList = [
+  {
+    name: 'Remeras',
+    slug: 'remera'
+  },
+  {
+    name: 'Calza',
+    slug: 'calza'
+  },
+  {
+    name: 'Short',
+    slug: 'short'
+  },
+  {
+    name: 'Top',
+    slug: 'top'
+  },
+  {
+    name: 'Medias',
+    slug: 'medias'
+  }
+]
+
 const NavLink = ({ name, path, onClose }) => {
   return (
     <Text fontSize='lg'>
@@ -63,7 +86,6 @@ const MenuLink = ({ name, slug, onClose }) => {
 
 export const LinksItems = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { categoriesList } = useCategories();
 
   return (
     <>

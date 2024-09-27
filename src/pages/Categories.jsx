@@ -7,9 +7,8 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 
 export function Categories() {
   const { cat } = useParams();
-  const { productsByCategory } = useCategories(cat);
+  const { productsByCategory, loading } = useCategories(cat);
 
-  const { products } = productsByCategory;
 
   return (
     <>
@@ -19,10 +18,10 @@ export function Categories() {
         </Text>
       </Box>
       <Flex alignItems="center" justifyContent="center" wrap="wrap" gap="10px">
-        {products ? (
-          products.map((product) => <CardItem key={ product.id } product={product} />)
-        ) : (
+        {loading ? (
           <LoadSpinner />
+        ) : (
+          productsByCategory.map((product) => <CardItem key={ product.id } product={product} />)
         )}
       </Flex>
     </>

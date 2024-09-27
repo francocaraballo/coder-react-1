@@ -1,10 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import { CardItem } from './';
-import { useProducts } from '../../hooks';
+import { useItemsCollection } from '../../hooks';
 import { LoadSpinner } from '../utilities';
 
 export const ItemListContainer = () => {
-  const { loading, products } = useProducts();
+  const { loading, data } = useItemsCollection('products');
 
   return (
     <Flex
@@ -17,7 +17,7 @@ export const ItemListContainer = () => {
       {loading ? (
         <LoadSpinner />
       ) : (
-        products.map((product) => {
+        data.map((product) => {
           return <CardItem product={product} key={product.id} />;
         })
       )}

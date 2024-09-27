@@ -1,22 +1,10 @@
-import { useState, useEffect } from 'react'
-import { getCategories, getProductsByCategory } from "../services";
+import { useItemsCollection } from './useItemsCollection';
 
 export function useCategories(category) {
-  const [categoriesList, setCategoriesList] = useState([]);
-  const [productsByCategory, setProductsByCategory] = useState([]);
-   
-  useEffect(() => {
-    getProductsByCategory(category)
-      .then(setProductsByCategory)
-      .catch(console.log)
-  }, [category]);
+  const { data, loading } = useItemsCollection('products');
 
-  useEffect(() => {
-    getCategories()
-    .then(setCategoriesList)
-    .catch(console.log);
-  }, []);
+  const productsByCategory = data.filter(product => product.category === category)
 
-  return { categoriesList, productsByCategory }
+  return { productsByCategory, loading }
 }
 
