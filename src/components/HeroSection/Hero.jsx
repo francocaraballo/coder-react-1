@@ -16,7 +16,7 @@ export const Hero = () => {
   return (
     <Container maxW="7xl" px={{ base: 6, md: 3 }} py={10}>
       <Stack direction={{ base: "column-reverse", md: "row" }}>
-        <Stack direction="column" spacing={6}>
+        <Stack marginY={'auto'} direction="column" spacing={6}>
           <Heading
             as="h3"
             size="lg"
@@ -24,7 +24,7 @@ export const Hero = () => {
             textAlign="left"
             maxW={{ base: "100%", md: "480px" }}
           >
-            The only eCommerce platform you’ll ever need.
+            Rendimiento y comodidad para cada entrenamiento
           </Heading>
           <Text
             color={useColorModeValue("gray.700", "gray.400")}
@@ -34,7 +34,7 @@ export const Hero = () => {
             fontWeight="300"
             maxW={{ base: "100%", md: "470px" }}
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, ex corrupti ducimus aliquam saepe eos tempora doloribus sequi aperiam ipsam, temporibus veritatis laboriosam adipisci ipsa velit atque fugiat cupiditate eligendi.
+            Ofrecemos la mejor selección de ropa deportiva para que alcances tus metas con estilo y comodidad. Cada prenda está diseñada para brindarte el máximo rendimiento, con materiales de alta calidad que se adaptan a tu ritmo de vida activa. Ya sea que entrenes en el gimnasio, corras al aire libre o disfrutes de actividades al aire libre, tenemos todo lo que necesitas para verte bien y sentirte mejor!
           </Text>
           <HStack spacing={3}>
             <Link to={'/products'}>
@@ -45,12 +45,12 @@ export const Hero = () => {
                 rounded="md"
                 boxShadow="md"
               >
-                Catalog
+                Catálogo
               </Button>
               </Link>
           </HStack>
           <HStack spacing={5}>
-            {["Warantly", "Shipping Free"].map((text, index) => (
+            {["Calidad", "Comodidad", "Garantía"].map((text, index) => (
               <HStack spacing={2} key={index}>
                 <svg
                   width="18"
@@ -80,7 +80,7 @@ export const Hero = () => {
             h="100%"
             minW={{ base: "auto", md: "30rem" }}
             objectFit="cover"
-            src="https://images.unsplash.com/photo-1625948515291-69613efd103f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
+            src="https://eurofitness.com/wp-content/uploads/2020/07/beneficios-del-deporte-para-la-salud.jpg"
             rounded="md"
             fallback={<Skeleton />}
           />
