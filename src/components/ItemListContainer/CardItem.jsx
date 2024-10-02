@@ -19,16 +19,19 @@ export const CardItem = ({ product }) => {
 
   return (
     <>
-      <Card maxW='350px' height='650'>
+      <Card width='320px' height='auto'>
         <CardBody>
           <Image
             src={product.img}
             alt={product.title}
             borderRadius='lg'
             height='300px'
+            objectFit={'cover'}
+            objectPosition={'center center'}
+            marginX={'auto'}
           />
           <Stack mt='6' spacing='3'>
-            <Heading size='md'>{product.title}</Heading>
+            <Heading size='md' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>{product.title}</Heading>
             <Text color='blue.600' fontSize='2xl'>
               ${product.price}
             </Text>
