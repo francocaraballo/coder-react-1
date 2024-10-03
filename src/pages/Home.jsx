@@ -1,9 +1,10 @@
-import { Hero } from '../components'
+import { Hero, HomeCategories } from '../components'
 
 export function Home() {
   return (
     <>
       <Hero />
+      <HomeCategories />
     </>
   )
 }

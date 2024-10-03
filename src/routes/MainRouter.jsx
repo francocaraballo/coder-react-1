@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from "../components";
+import { Footer, Navbar } from "../components";
 import { Home, Products, ItemDetails, Categories, Cart } from "../pages";
 
 export const MainRouter = () => {
@@ -13,6 +13,7 @@ export const MainRouter = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
