@@ -3,13 +3,14 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { MainRouter } from "./routes/MainRouter";
 import { CartProvider } from "./context";
+import { MainLayout } from "./layout/MainLayout";
 
 const App = () => {
 
   return (
     <ChakraProvider>
       <CartProvider>
-        <MainRouter />
+          <MainRouter />
       </CartProvider>
     </ChakraProvider>
   );
