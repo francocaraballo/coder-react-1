@@ -38,7 +38,7 @@ export const HomeCategories = () => {
   return (
     <div className='container mx-auto px-4 py-8'>
       <h2 className='text-2xl font-bold mb-6 text-center'>Categorias</h2>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center'>
+      <div className='flex flex-col lg:flex-row justify-items-center gap-4'>
         {categories.map((category) => (
           <div
             key={category.id}
@@ -47,9 +47,7 @@ export const HomeCategories = () => {
             <Image
               src={category.imageUrl}
               alt={category.title}
-              width={600}
-              height={400}
-              className='object-cover w-full h-64 transition-transform duration-300 group-hover:scale-110'
+              className='object-cover w-full lg:w-96 h-96 transition-transform duration-300 group-hover:scale-110'
             />
             <div className='absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-50' />
             <Link to={category.link}>
