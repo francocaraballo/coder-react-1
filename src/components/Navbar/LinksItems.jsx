@@ -19,14 +19,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Products", path: "/products" },
+  { name: "Inicio", path: "/" },
+  { name: "Productos", path: "/products" },
 ];
 
 const categoriesList = [
@@ -106,7 +104,7 @@ export const LinksItems = () => {
                 <>
                   <MenuButton _hover={{ color: "blue.400" }}>
                     <Flex alignItems="center">
-                      <Text fontSize='lg'>Categories</Text>
+                      <Text fontSize='lg'>Categorias</Text>
                       <Icon
                         as={BiChevronDown}
                         h={5}
